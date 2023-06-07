@@ -1,122 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>exit time</title>
-    <style>
-        /*by Said*/
-        * {
-            box-sizing: border-box;
-        }
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .divider {
-            margin: auto;
-            width: 60%;
-            padding-bottom: 6px;
-            border-bottom:  3px solid red;
-        }
-
-        .entrance-container {
-            font-size: 30pt;
-            color: white;
-        }
-        .entrance {
-            color: white;
-            background-color: black;
-            border: none;
-            text-align: center;
-            font-size: 30pt;
-            outline:0px;
-            width: 6rem;
-            box-shadow: 7px 6px 28px 1px rgb(28, 27, 27);
-        }
-
-        div {
-            margin: 4px;
-        }
-
-        body {
-            background-color: black;
-            color: green;
-            width: 100%;
-            height: 100vh;
-            font-size: 18vw;
-        }
-
-        .container {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-content: center;
-            align-items: center;
-            justify-content: center;
-            justify-items: center;
-        }
-    </style>
-</head>
-
-<body>
-<div class="container">
-    <div>
-        <div class="container entrance-container">
-            <input class="entrance" id="h1" type="number" value="8" autofocus max="11" min="8"
-                   onClick="this.select();"/>
-            :
-            <input class="entrance" id="m1" type="number" value="0" min="0" max="59" onClick="this.select();"/>
-        </div>
-        <div class="divider"></div>
-        <div class="container" id="output"> 17:18</div>
-    </div>
-</div>
-</body>
-
-<script>
-    window.onload = () => {
-        document.getElementById("h1").select()
+{
+  "walletList": [
+    {
+      "network": "ERC20",
+      "coinIso": "HPO",
+      "addressList": [
+        "0x06545709697740761cbb64a376387a6367A80cC1"
+      ]
+    },
+    {
+      "network": "ETHEREUM",
+      "coinIso": "ETH",
+      "addressList": [
+        "0x06545709697740761cbb64a376387a6367A80cC1"
+      ]
+    },
+    {
+      "network": "ERC20",
+      "coinIso": "HPOooo",
+      "addressList": [
+        "0x06545709697740761cbb64a376387a6367A80cC1"
+      ]
+    },
+    {
+      "network": "ERC20",
+      "coinIso": "USDT",
+      "addressList": [
+        "0x06545709697740761cbb64a376387a6367A80cC1"
+      ]
     }
-
-    const calc = function () {
-        let h1 = Number(document.getElementById("h1").value)
-        let m1 = Number(document.getElementById("m1").value)
-
-        if (h1 < 8 || h1 > 11 || m1 < 0 || m1 > 59) {
-            document.getElementById('output').innerText = `invalid :(`
-            return
-        }
-
-        let t1 = h1 * 60 + m1
-        let t2 = t1 + 9 * 60 + 18
-        if (t1 > 10 * 60) {
-            t2 = t2 + (t1 - 10 * 60)
-        }
-        let h2 = Math.floor(t2 / 60)
-        let m2 = t2 - h2 * 60
-
-        document.getElementById('output').innerText = `${h2}:${m2}`
-        if (m2 < 10)
-            document.getElementById('output').innerText = `${h2}:0${m2}`
-
-        let worst = 22 * 60
-        let best = 17 * 60 + 18
-        let c = (1 - (t2 - best) / (worst - best)) * 100
-        document.getElementById("output").style.color = `hsl(${c}, 100%, 50%)`
-        ////////////////// Zan Zendegi Azadi ////////////////////
-    };
-    document.getElementById("h1").addEventListener('input', calc)
-    document.getElementById("m1").addEventListener('input', calc)
-
-    document.getElementById("m1").addEventListener('beforeinput', (v) => {
-
-    })
-
-</script>
-</html>
+  ]
+}
