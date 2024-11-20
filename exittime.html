@@ -114,6 +114,14 @@
     document.getElementById("h1").addEventListener('input', calc)
     document.getElementById("m1").addEventListener('input', calc)
 
+    document.getElementById("h1").addEventListener('input', () => {
+        let h1 = Number(document.getElementById("h1").value)
+        if (h1 >= 8) {
+            document.getElementById("m1").focus()
+            document.getElementById("m1").select()
+        }
+    })
+
     document.getElementById("m1").addEventListener('beforeinput', (v) => {
 
     })
